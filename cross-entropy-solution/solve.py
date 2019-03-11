@@ -8,14 +8,14 @@ state = env.reset()
 N_ACTIONS = 4
 N_STATE = 8
 BATCH_SIZE = 100
-N_EPISODES = 200
+N_EPISODES = 600
 PERCENTILE = 80
 
-agent = MLPClassifier(warm_start=True, random_state=0, hidden_layer_sizes=(64, 64))
+agent = MLPClassifier(warm_start=True, random_state=0, hidden_layer_sizes=(128, 256))
 agent.fit([state] * N_ACTIONS, [0, 1, 2, 3])
 
 
-def get_batch(n_frames=500):
+def get_batch(n_frames=200):
     states = []
     actions = []
     reward = 0
